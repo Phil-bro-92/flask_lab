@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{{title}} - Order Details</title>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='style.css') }}"
+    />
+  </head>
+  <body>
+    <header>
+      <h1>Glasgow Games</h1>
+      <nav>
+        <ul>
+          <li>Home</li>
+          <li>About</li>
+          <li>Games</li>
+          <li>Contact</li>
+        </ul>
+      </nav>
+    </header>
+    <main>
+      <h2>Customer Orders</h2>
+      <article>
+        {% for game in games %}
+        <a href="/games/{{game.id -1}}"
+          ><section>
+            <h2>{{game.game_title}}</h2>
+            <h4>{{game.genre}}</h4>
+            <p>{{game.description}}</p>
+            <p>
+              Customer name: <b>{{game.customer_name}}</b>&nbsp;<span
+                >Purchased: <b>{{game.order_date}}</b></span
+              >
+            </p>
+          </section></a
+        >
+        {% endfor %}
+      </article>
+    </main>
+    <footer>
+      <h4>GG &copy; 2022</h4>
+      <ul>
+        <li>Home</li>
+        <li>Blog</li>
+        <li>Contact</li>
+      </ul>
+      <address>1234, Fake Street, Glasgow</address>
+    </footer>
+  </body>
+</html>
